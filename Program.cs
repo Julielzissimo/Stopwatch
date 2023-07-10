@@ -29,9 +29,21 @@ namespace Stopwatch
             if (time == 0)
                 System.Environment.Exit(0);
 
-            Start(time * multiplier);
+            PreStart(time * multiplier);
         }
 
+        static void PreStart(int time)
+        {
+            Console.Clear();
+            Console.WriteLine("Ready...");
+            Thread.Sleep(1000);
+            Console.WriteLine("Set...");
+            Thread.Sleep(1000);
+            Console.WriteLine("Go...");
+            Thread.Sleep(1000);
+
+            Start(time);
+        }
         static void Start(int time)
         {
             int currentTime = 0;
@@ -47,6 +59,5 @@ namespace Stopwatch
             Console.WriteLine("Stopwatch finalizado.");
             Thread.Sleep(1000);
         }
-
     }
 }
